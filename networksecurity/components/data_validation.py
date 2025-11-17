@@ -77,7 +77,7 @@ class DataValidation:
             # validate number of columns
             status=self.validate_number_of_columns(dataframe=train_dataframe)
             if not status:
-                error_message=f"{error_message} Train dataframe does not contains all columns.\n"
+                error_message=f"Train dataframe does not contains all columns.\n"
                 
             status=self.validate_number_of_columns(dataframe=test_dataframe)
             if not status:
@@ -102,7 +102,9 @@ class DataValidation:
                 invalid_test_file_path=None,
                 invalid_train_file_path=None,
                 drift_report_file_path=self.data_validation_config.drift_report_file_path                
-            )   
+            )  
+            
+            return data_validation_artifact
             
         except Exception as e:
             raise NetworkSecurityException(e,sys)
